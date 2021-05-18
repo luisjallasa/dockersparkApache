@@ -1,0 +1,17 @@
+//para crear los contenedores y ejecutarlos
+docker-compose.yml up -d
+
+//para descargar el dataset
+wget https://data.cityofchicago.org/api/views/xzkq-xp2w/rows.csv?accessType=DOWNLOAD
+
+//para entrar al shell de spartk con python
+./pyspark
+
+//para cargar la informacion perfectamente divida
+dataframe = spark.read.options( header='True', inferSchema='true').csv('data/data.csv')
+
+//para que haga un conteo de las filas
+dataframe.count()
+
+//para ver el nombre de los atributos y tipo de datos
+dataframe.printSchema()
